@@ -1,0 +1,6 @@
+ ---
+// MapWrapper.astro (o inline en itinerario.astro)
+const MapaRuta = await import('../components/MapaRuta.jsx');
+---
+
+<MapaRuta.default client:only="react" />
