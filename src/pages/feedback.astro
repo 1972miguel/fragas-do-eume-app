@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Questionnaire from '../components/Questionnaire.jsx';
+---
+
+<Layout title="Tu opinión nos importa">
+  <div class="py-12">
+    <h1 class="text-3xl font-bold mb-10 text-center">Feedback de la salida a As Fragas do Eume</h1>
+    
+    <Questionnaire client:load />
+  </div>
+</Layout>

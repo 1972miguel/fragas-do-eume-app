@@ -2,15 +2,53 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Itinerario">
-  <h1 class="text-2xl mb-4">Ruta Circular: 12 km, Media-Baja</h1>
-  <table class="w-full border-collapse border border-gray-300 mb-4">
-    <thead><tr><th>Parada</th><th>Km</th><th>Duración</th></tr></thead>
-    <tbody>
-      <tr><td>Río Eume (hidratación)</td><td>4</td><td>10 min</td></tr>
-      <tr><td>Monasterio Caaveiro (picnic)</td><td>7</td><td>1h</td></tr>
-      <tr><td>Mirador final</td><td>10</td><td>15 min</td></tr>
-    </tbody>
-  </table>
-  <p>Desnivel: 200m. Duración total: 4-6h.</p>
+<Layout title="Itinerario - As Fragas do Eume">
+<h1 class="text-3xl font-bold mb-6 text-green-800 text-center md:text-left">Itinerario de la ruta</h1>
+
+<div class="overflow-x-auto mb-8 shadow-md rounded-lg">
+  <table class="min-w-full border-collapse bg-white text-sm">
+    <thead class="bg-green-700 text-white">
+      <tr>
+        <th class="px-6 py-4 text-left font-semibold">Punto / Parada</th>
+        <th class="px-6 py-4 text-left font-semibold">Km aproximado</th>
+        <th class="px-6 py-4 text-left font-semibold">Tiempo estimado</th>
+        <th class="px-6 py-4 text-left font-semibold">Notas</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+        <tr class="hover:bg-green-50">
+          <td class="border border-gray-300 px-4 py-3">Inicio – Portal de Caaveiro</td>
+          <td class="border border-gray-300 px-4 py-3">0 km</td>
+          <td class="border border-gray-300 px-4 py-3">—</td>
+          <td class="border border-gray-300 px-4 py-3">Parking y punto de encuentro</td>
+        </tr>
+        <tr class="hover:bg-green-50">
+          <td class="border border-gray-300 px-4 py-3">Descanso junto al río Eume</td>
+          <td class="border border-gray-300 px-4 py-3">~4 km</td>
+          <td class="border border-gray-300 px-4 py-3">10-15 min</td>
+          <td class="border border-gray-300 px-4 py-3">Hidratación y fotos</td>
+        </tr>
+        <tr class="hover:bg-green-50">
+          <td class="border border-gray-300 px-4 py-3">Monasterio de Caaveiro</td>
+          <td class="border border-gray-300 px-4 py-3">~7 km</td>
+          <td class="border border-gray-300 px-4 py-3">45-90 min</td>
+          <td class="border border-gray-300 px-4 py-3">Visita + picnic</td>
+        </tr>
+        <tr class="hover:bg-green-50">
+          <td class="border border-gray-300 px-4 py-3">Mirador zona alta</td>
+          <td class="border border-gray-300 px-4 py-3">~10 km</td>
+          <td class="border border-gray-300 px-4 py-3">15-20 min</td>
+          <td class="border border-gray-300 px-4 py-3">Fotos panorámicas del bosque</td>
+        </tr>
+        <tr class="hover:bg-green-50">
+          <td class="border border-gray-300 px-4 py-3">Regreso al parking</td>
+          <td class="border border-gray-300 px-4 py-3">12 km</td>
+          <td class="border border-gray-300 px-4 py-3">—</td>
+          <td class="border border-gray-300 px-4 py-3">Fin de ruta</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="text-sm text-gray-600 italic">Consejo: lleva bastones si hay barro (típico en las Fragas).</p>
 </Layout>
