@@ -7,15 +7,17 @@ import {
   Popup,
   useMapEvents,
 } from "react-leaflet";
-import L from "leaflet"; // ← Importa L para sobrescribir iconos
+import L from "leaflet";
 
-// Importa manualmente las imágenes de Leaflet (evita 404 en prod)
+// Importa imágenes explícitamente (Vite las bundea correctamente)
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerIconRetina from "leaflet/dist/images/marker-icon-2x.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
-// Sobrescribe los defaults de Leaflet UNA VEZ (fuera del componente)
-delete L.Icon.Default.prototype._getIconUrl; // Borra el método viejo que usa rutas relativas
+// Sobrescribe iconos default de Leaflet (el fix principal)
+delete L.Icon.Default.prototype._getIconUrl;
+
+// Merge options con paths importados (usa .src para Vite/Astro)
 L.Icon.Default.mergeOptions({
   iconUrl: markerIcon,
   iconRetinaUrl: markerIconRetina,
@@ -25,6 +27,11 @@ L.Icon.Default.mergeOptions({
   popupAnchor: [1, -34],
   shadowSize: [41, 41],
 });
+
+// Condicional extra para dev (algunos casos en Astro lo necesitan)
+if (import.meta.env.DEV) {
+  L.Icon.Default.imagePath = ""; // Evita concatenación mala en dev
+}
 
 function LocationMarker({ onLocationChange }) {
   useMapEvents({
@@ -37,9 +44,9 @@ function LocationMarker({ onLocationChange }) {
 
 export default function MapaRuta() {
   const [position, setPosition] = useState(null);
-  const [mapCenter] = useState([43.44, -8.12]); // Centro aproximado Fragas
+  const [mapCenter] = useState([43.44, -8.12]); // Centro Fragas do Eume
 
-  // Puntos clave actualizados de la ruta Wikiloc
+  // Puntos clave de la ruta Wikiloc (actualizados)
   const routePoints = [
     [43.428, -8.128], // Inicio: Central da Ventureira
     [43.43, -8.125], // Vistas lejanas al Monasterio
@@ -59,7 +66,7 @@ export default function MapaRuta() {
           const { latitude, longitude } = pos.coords;
           setPosition([latitude, longitude]);
         },
-        (err) => console.warn("Geolocalización error:", err),
+        (err) => console.warn("Error geolocalización:", err),
         { enableHighAccuracy: true, timeout: 5000, maximumAge: 5000 },
       );
       return () => navigator.geolocation.clearWatch(watchId);
