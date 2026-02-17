@@ -81,7 +81,10 @@ export default function MapaRuta() {
       <MapContainer
         center={mapCenter}
         zoom={14}
-        style={{ height: "400px", width: "100%" }}
+        style={{
+          height: window.innerWidth < 640 ? "300px" : "400px",
+          width: "100%",
+        }}
         className="rounded-lg shadow-md"
       >
         <TileLayer

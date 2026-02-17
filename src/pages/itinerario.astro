@@ -16,76 +16,75 @@ import PerfilAltitud from '../components/PerfilAltitud.jsx';  // ← Import EST�
       Ruta circular/moderada: ~12 km, desnivel ~250 m, duración 4-6 horas (con paradas). Ideal en mayo.
     </p>
 
-    <!-- Tabla de paradas (tu contenido anterior) -->
- <!-- En itinerario.astro o donde tengas la tabla -->
-<div class="overflow-x-auto mb-10 shadow-md rounded-lg">
-  <table class="min-w-full border-collapse bg-white text-sm md:text-base">
-    <thead class="bg-green-700 text-white">
-      <tr>
-        <th class="px-6 py-4 text-left font-semibold">Punto / Parada</th>
-        <th class="px-6 py-4 text-left font-semibold">Km aprox. acumulado</th>
-        <th class="px-6 py-4 text-left font-semibold">Tiempo estimado (sin parar)</th>
-        <th class="px-6 py-4 text-left font-semibold">Notas / Interés</th>
-      </tr>
-    </thead>
-    <tbody class="divide-y divide-gray-200">
-      <tr class="hover:bg-green-50">
-        <td class="border px-6 py-4">Inicio – Central da Ventureira (aparcamiento)</td>
-        <td class="border px-6 py-4">0 km</td>
-        <td class="border px-6 py-4">—</td>
-        <td class="border px-6 py-4">Zona de parking, carteles informativos, puente y regato inicial</td>
-      </tr>
-      <tr class="hover:bg-green-50">
-        <td class="border px-6 py-4">Vistas lejanas al Monasterio</td>
-        <td class="border px-6 py-4">~1-1.5 km</td>
-        <td class="border px-6 py-4">10-15 min</td>
-        <td class="border px-6 py-4">Primer avistamiento del monasterio entre la vegetación</td>
-      </tr>
-      <tr class="hover:bg-green-50">
-        <td class="border px-6 py-4">Puente Medieval y Ruinas de Molino (Río Sesín)</td>
-        <td class="border px-6 py-4">~3-4 km</td>
-        <td class="border px-6 py-4">20-30 min</td>
-        <td class="border px-6 py-4">Puente de sillería medieval, restos de molino, fuente romántica cercana – parada foto/histórica</td>
-      </tr>
-      <tr class="hover:bg-green-50">
-        <td class="border px-6 py-4">Unión Ríos Sesín y Eume</td>
-        <td class="border px-6 py-4">~4.5-5 km</td>
-        <td class="border px-6 py-4">15 min</td>
-        <td class="border px-6 py-4">Confluencia espectacular, vistas al cauce rocoso</td>
-      </tr>
-      <tr class="hover:bg-green-50">
-        <td class="border px-6 py-4">Monasterio de Caaveiro</td>
-        <td class="border px-6 py-4">~6-7 km</td>
-        <td class="border px-6 py-4">45-90 min</td>
-        <td class="border px-6 py-4">Visita principal: Iglesia románica, Casa dos Coengos, atrio. Picnic recomendado (zona amplia)</td>
-      </tr>
-      <tr class="hover:bg-green-50">
-        <td class="border px-6 py-4">Tramo con cuerdas (subida/bajada)</td>
-        <td class="border px-6 py-4">~7.5-8.5 km</td>
-        <td class="border px-6 py-4">20-30 min</td>
-        <td class="border px-6 py-4">Cuerda firme instalada – precaución, ayuda mutua si grupo grande</td>
-      </tr>
-      <tr class="hover:bg-green-50">
-        <td class="border px-6 py-4">Ponte Colgante de Fornelos</td>
-        <td class="border px-6 py-4">~9 km</td>
-        <td class="border px-6 py-4">10-15 min</td>
-        <td class="border px-6 py-4">Cruce colgante sobre el Eume – fotos panorámicas</td>
-      </tr>
-      <tr class="hover:bg-green-50">
-        <td class="border px-6 py-4">Área recreativa junto al Eume</td>
-        <td class="border px-6 py-4">~9.5-10 km</td>
-        <td class="border px-6 py-4">20-30 min</td>
-        <td class="border px-6 py-4">Descanso con vistas al río, sonoridad del agua, posible merienda</td>
-      </tr>
-      <tr class="hover:bg-green-50">
-        <td class="border px-6 py-4">Regreso por pista / vistas finales</td>
-        <td class="border px-6 py-4">11.4 km</td>
-        <td class="border px-6 py-4">—</td>
-        <td class="border px-6 py-4">Vuelta tranquila con vistas al Eume y puente en Central da Ventureira</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    <!-- Tabla de paradas – con data-label en TODOS los <td> para responsive móvil -->
+    <div class="overflow-x-auto mb-10 shadow-md rounded-lg">
+      <table class="min-w-full border-collapse bg-white text-sm md:text-base">
+        <thead class="bg-green-700 text-white">
+          <tr>
+            <th class="px-6 py-4 text-left font-semibold">Punto / Parada</th>
+            <th class="px-6 py-4 text-left font-semibold">Km aprox. acumulado</th>
+            <th class="px-6 py-4 text-left font-semibold">Tiempo estimado (sin parar)</th>
+            <th class="px-6 py-4 text-left font-semibold">Notas / Interés</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <tr class="hover:bg-green-50">
+            <td data-label="Punto / Parada">Inicio – Central da Ventureira (aparcamiento)</td>
+            <td data-label="Km aprox. acumulado">0 km</td>
+            <td data-label="Tiempo estimado (sin parar)">—</td>
+            <td data-label="Notas / Interés">Zona de parking, carteles informativos, puente y regato inicial</td>
+          </tr>
+          <tr class="hover:bg-green-50">
+            <td data-label="Punto / Parada">Vistas lejanas al Monasterio</td>
+            <td data-label="Km aprox. acumulado">~1-1.5 km</td>
+            <td data-label="Tiempo estimado (sin parar)">10-15 min</td>
+            <td data-label="Notas / Interés">Primer avistamiento del monasterio entre la vegetación</td>
+          </tr>
+          <tr class="hover:bg-green-50">
+            <td data-label="Punto / Parada">Puente Medieval y Ruinas de Molino (Río Sesín)</td>
+            <td data-label="Km aprox. acumulado">~3-4 km</td>
+            <td data-label="Tiempo estimado (sin parar)">20-30 min</td>
+            <td data-label="Notas / Interés">Puente de sillería medieval, restos de molino, fuente romántica cercana – parada foto/histórica</td>
+          </tr>
+          <tr class="hover:bg-green-50">
+            <td data-label="Punto / Parada">Unión Ríos Sesín y Eume</td>
+            <td data-label="Km aprox. acumulado">~4.5-5 km</td>
+            <td data-label="Tiempo estimado (sin parar)">15 min</td>
+            <td data-label="Notas / Interés">Confluencia espectacular, vistas al cauce rocoso</td>
+          </tr>
+          <tr class="hover:bg-green-50">
+            <td data-label="Punto / Parada">Monasterio de Caaveiro</td>
+            <td data-label="Km aprox. acumulado">~6-7 km</td>
+            <td data-label="Tiempo estimado (sin parar)">45-90 min</td>
+            <td data-label="Notas / Interés">Visita principal: Iglesia románica, Casa dos Coengos, atrio. Picnic recomendado (zona amplia)</td>
+          </tr>
+          <tr class="hover:bg-green-50">
+            <td data-label="Punto / Parada">Tramo con cuerdas (subida/bajada)</td>
+            <td data-label="Km aprox. acumulado">~7.5-8.5 km</td>
+            <td data-label="Tiempo estimado (sin parar)">20-30 min</td>
+            <td data-label="Notas / Interés">Cuerda firme instalada – precaución, ayuda mutua si grupo grande</td>
+          </tr>
+          <tr class="hover:bg-green-50">
+            <td data-label="Punto / Parada">Ponte Colgante de Fornelos</td>
+            <td data-label="Km aprox. acumulado">~9 km</td>
+            <td data-label="Tiempo estimado (sin parar)">10-15 min</td>
+            <td data-label="Notas / Interés">Cruce colgante sobre el Eume – fotos panorámicas</td>
+          </tr>
+          <tr class="hover:bg-green-50">
+            <td data-label="Punto / Parada">Área recreativa junto al Eume</td>
+            <td data-label="Km aprox. acumulado">~9.5-10 km</td>
+            <td data-label="Tiempo estimado (sin parar)">20-30 min</td>
+            <td data-label="Notas / Interés">Descanso con vistas al río, sonoridad del agua, posible merienda</td>
+          </tr>
+          <tr class="hover:bg-green-50">
+            <td data-label="Punto / Parada">Regreso por pista / vistas finales</td>
+            <td data-label="Km aprox. acumulado">11.4 km</td>
+            <td data-label="Tiempo estimado (sin parar)">—</td>
+            <td data-label="Notas / Interés">Vuelta tranquila con vistas al Eume y puente en Central da Ventureira</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <PerfilAltitud client:only="react" />
 

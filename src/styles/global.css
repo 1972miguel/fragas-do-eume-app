@@ -8,3 +8,109 @@
   border-radius: 8px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
+/* Mejoras generales para móvil */
+@media (max-width: 640px) {
+  body {
+    font-size: 1rem; /* Aumenta texto base para mejor legibilidad */
+  }
+
+  h1 {
+    font-size: 2rem; /* Reduce títulos grandes */
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    line-height: 1.6; /* Más espacio entre líneas */
+  }
+
+  .container {
+    padding-left: 1rem; /* Más espacio lateral en contenedores */
+    padding-right: 1rem;
+  }
+
+  /* Hero en home */
+  .hero-section {
+    /* Ajusta si tienes una clase hero */
+    height: 50vh; /* Reduce altura para menos scroll */
+    min-height: 300px;
+  }
+
+  /* Mapa Leaflet */
+  .leaflet-container {
+    height: 300px !important; /* Reduce altura para móvil */
+  }
+
+  /* Perfil altitudinal Chart.js */
+  .chart-container {
+    /* Añade esta clase al div del gráfico en PerfilAltitud.jsx */
+    height: 300px !important;
+  }
+
+  /* Cuestionario */
+  .questionnaire-div {
+    /* Añade esta clase al div principal en Questionnaire.jsx */
+    padding: 1.5rem;
+  }
+
+  button {
+    padding: 1rem; /* Botones más grandes para touch */
+    font-size: 1.125rem;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 0.75rem; /* Más espacio en campos */
+    font-size: 1rem;
+  }
+}
+
+/* Mejora específica para tablas (stacked en móvil) */
+@media (max-width: 640px) {
+  table {
+    display: block;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.5rem;
+  }
+
+  thead {
+    display: none; /* Oculta cabeceras en móvil */
+  }
+
+  tbody,
+  tr,
+  th,
+  td {
+    display: block;
+    width: 100%;
+  }
+
+  td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    position: relative;
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  /* Añade pseudo-elemento con el nombre de la columna antes de cada celda */
+  td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem;
+    width: 40%;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #15803d; /* Verde oscuro para etiquetas */
+  }
+
+  td {
+    padding-left: 50%; /* Espacio para el label */
+  }
+}
