@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import MapaRuta from '../components/MapaRuta.jsx';  // ← Import ESTÁTICO (obligatorio para client:only)
+import PerfilAltitud from '../components/PerfilAltitud.jsx';  // ← Import ESTÁTICO (obligatorio para client:only)
 ---
 
 <Layout title="Itinerario - As Fragas do Eume">
@@ -85,6 +86,8 @@ import MapaRuta from '../components/MapaRuta.jsx';  // ← Import ESTÁTICO (obl
     </tbody>
   </table>
 </div>
+
+    <PerfilAltitud client:only="react" />
 
     <!-- Mapa interactivo – client:only evita SSR y el error de window -->
     <MapaRuta client:only="react" />

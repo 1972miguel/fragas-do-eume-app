@@ -3,22 +3,38 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Salida a As Fragas do Eume – Mayo">
-  <section class="text-center py-12 bg-gradient-to-b from-green-50 to-white">
-    <h1 class="text-4xl md:text-5xl font-bold mb-6 text-green-800">
-      ¡Aventura verde en As Fragas do Eume! EN CONSTRUCCIÓN.
-    </h1>
-    
-    <p class="text-xl mb-8 max-w-3xl mx-auto">
-      Ruta de 12 km por uno de los bosques atlánticos mejor conservados de Europa.
-      Mayo: verdes intensos, helechos, río y monasterio románico.
-    </p>
-    <div class="flex flex-col sm:flex-row justify-center gap-4">
-      <a href="/itinerario" class="bg-green-600 text-white px-8 py-4 rounded-lg text-lg hover:bg-green-700">
-        Ver itinerario
-      </a>
-      <a href="/feedback" class="bg-white text-green-700 border-2 border-green-600 px-8 py-4 rounded-lg text-lg hover:bg-green-50">
-        Dar feedback (después de la ruta)
-      </a>
+
+  <!-- Hero con foto grande -->
+  <section class="relative h-[60vh] min-h-[500px] flex items-center justify-center text-center text-white">
+    <img 
+      src="/hero.jpg" 
+      alt="Bosque atlántico de As Fragas do Eume" 
+      class="absolute inset-0 w-full h-full object-cover brightness-75"
+    />
+    <div class="relative z-10 px-6 max-w-4xl">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
+        ¡Aventura verde en As Fragas do Eume!
+      </h1>
+      <p class="text-xl md:text-2xl mb-10 drop-shadow-md">
+        Ruta circular de 11.4 km por uno de los bosques atlánticos mejor conservados de Europa.  
+        Mayo: verdes intensos, helechos, río y monasterio románico.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-6">
+        <a href="/itinerario" class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-medium transition">
+          Ver itinerario y mapa
+        </a>
+        <a href="/feedback" class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border border-white px-8 py-4 rounded-lg text-lg font-medium transition">
+          Dar feedback (después de la ruta)
+        </a>
+      </div>
     </div>
   </section>
+
+  <!-- Opcional: sección adicional abajo -->
+  <section class="py-12 bg-gradient-to-b from-green-50 to-white text-center">
+    <p class="text-lg text-gray-700 max-w-3xl mx-auto px-6">
+      Únete a esta experiencia única en la naturaleza gallega. Equipamiento, normas verdes y patrimonio natural y cultural en una sola app.
+    </p>
+  </section>
+
 </Layout>

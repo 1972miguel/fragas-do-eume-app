@@ -10,10 +10,26 @@ export default function Questionnaire() {
 
   const nextStep = () => setStep(step + 1);
 
-  const submit = () => {
+  const submit = async () => {
     console.log("Feedback enviado:", formData);
-    alert("¡Gracias por tu opinión! La recibimos correctamente.");
-    // Aquí podrías conectar con Formspree, Google Forms, etc. más adelante
+    alert("¡Gracias por tu opinión! La hemos recibido correctamente.");
+
+    // Envío a Google Sheets (ver punto 3)
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbzkxhTzdkLc6MNqLL0ntz1XUCF07Lw7hzm_jEwRC5j8Lq1FdMJFFXi6FhkOfIkmF2QZ/exec",
+        {
+          // ← pega aquí TU URL del script
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        },
+      );
+      console.log("Enviado a Google Sheets");
+    } catch (error) {
+      console.error("Error al enviar:", error);
+    }
   };
 
   return (
@@ -41,7 +57,7 @@ export default function Questionnaire() {
           </p>
           <button
             onClick={nextStep}
-            className="mt-6 w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition-colors"
+            className="mt-6 w-full bg-green-600 text-white py-3 rounded hover:bg-green-700"
           >
             Siguiente
           </button>
@@ -65,7 +81,7 @@ export default function Questionnaire() {
           </select>
           <button
             onClick={nextStep}
-            className="mt-6 w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition-colors"
+            className="mt-6 w-full bg-green-600 text-white py-3 rounded hover:bg-green-700"
           >
             Siguiente
           </button>
@@ -86,7 +102,7 @@ export default function Questionnaire() {
           />
           <button
             onClick={nextStep}
-            className="mt-6 w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition-colors"
+            className="mt-6 w-full bg-green-600 text-white py-3 rounded hover:bg-green-700"
           >
             Siguiente
           </button>
@@ -106,8 +122,78 @@ export default function Questionnaire() {
             placeholder="Ideas, mejoras, destinos que te gustaría..."
           />
           <button
+            onClick={nextStep}
+            className="mt-6 w-full bg-green-600 text-white py-3 rounded hover:bg-green-700"
+          >
+            Siguiente
+          </button>
+        </div>
+      )}
+
+      {step === 5 && (
+        <div>
+          <label className="block mb-2 font-medium">
+            5. ¿Qué opinión tienes sobre el tiempo dedicado a las paradas
+            culturales?
+          </label>
+          <textarea
+            name="paradas_culturales"
+            onChange={handleChange}
+            rows="4"
+            className="w-full p-3 border rounded"
+            placeholder="Ej: suficiente, demasiado corto, bien equilibrado..."
+          />
+          <button
+            onClick={nextStep}
+            className="mt-6 w-full bg-green-600 text-white py-3 rounded hover:bg-green-700"
+          >
+            Siguiente
+          </button>
+        </div>
+      )}
+
+      {step === 6 && (
+        <div>
+          <label className="block mb-2 font-medium">
+            6. ¿Sientes que la organización garantizó la seguridad en todo
+            momento?
+          </label>
+          <select
+            name="seguridad"
+            onChange={handleChange}
+            className="w-full p-3 border rounded"
+          >
+            <option value="">Selecciona...</option>
+            <option value="totalmente">Totalmente de acuerdo</option>
+            <option value="bastante">Bastante de acuerdo</option>
+            <option value="regular">Ni de acuerdo ni en desacuerdo</option>
+            <option value="poco">Poco de acuerdo</option>
+            <option value="nada">Nada de acuerdo</option>
+          </select>
+          <button
+            onClick={nextStep}
+            className="mt-6 w-full bg-green-600 text-white py-3 rounded hover:bg-green-700"
+          >
+            Siguiente
+          </button>
+        </div>
+      )}
+
+      {step === 7 && (
+        <div>
+          <label className="block mb-2 font-medium">
+            7. ¿Cuál fue tu punto de interés favorito?
+          </label>
+          <input
+            type="text"
+            name="favorito"
+            onChange={handleChange}
+            className="w-full p-3 border rounded"
+            placeholder="Ej: el Monasterio, el puente colgante, los helechos..."
+          />
+          <button
             onClick={submit}
-            className="mt-6 w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition-colors"
+            className="mt-6 w-full bg-green-700 text-white py-3 rounded hover:bg-green-800 font-bold"
           >
             Enviar opinión
           </button>

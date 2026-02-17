@@ -2,20 +2,121 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Patrimonio Natural y Cultural">
-  <h1 class="text-3xl font-bold mb-6 text-center md:text-left">Patrimonio de As Fragas do Eume</h1>
+<Layout title="Patrimonio Natural y Cultural - As Fragas do Eume">
 
- <div class="grid md:grid-cols-2 gap-8">
-   <article class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-      <h2 class="text-2xl font-semibold mb-4 text-green-800">Bosque Atlántico (Natural)</h2>
-      <p class="mb-4">Uno de los últimos reductos bien conservados de bosque atlántico en Europa. Robledales, castaños centenarios, helechos prehistóricos (como Diplazium caudatum) y una humedad constante gracias al río Eume.</p>
-      <p class="italic text-gray-700">En mayo: verdes intensos, helechos desplegados, canto de aves.</p>
-    </article>
+  <main class="container mx-auto px-4 py-12">
+    
+    <!-- Hero introductorio atractivo -->
+    <section class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-green-800">
+        El corazón verde de Galicia: Fragas do Eume
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-8">
+        Uno de los mejores ejemplos de bosque atlántico termófilo de Europa, con más de 9.000 hectáreas de naturaleza virgen, ríos cristalinos y un monasterio medieval escondido entre la vegetación.
+      </p>
+      <img 
+        src="/imagenes/fragas-hero.jpg"  
+        alt="Bosque atlántico en Fragas do Eume con río y vegetación exuberante" 
+        class="w-full max-h-[500px] object-cover rounded-xl shadow-2xl mx-auto"
+        loading="lazy"
+      />
+    </section>
 
-    <article class="bg-white p-6 rounded-lg shadow-md">
-      <h2 class="text-2xl font-semibold mb-4 text-green-800">Monasterio de San Juan de Caaveiro (Cultural)</h2>
-      <p class="mb-4">Fundado en el siglo X, románico gallego en un peñasco espectacular. Abandonado y recuperado, ofrece vistas únicas del dosel forestal.</p>
-      <p class="italic text-gray-700">Visita obligada: interior austero y leyenda ligada a la fundación.</p>
-    </article>
-  </div>
-</Layout>
+    <!-- Patrimonio Natural -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-green-700 text-center">
+        Patrimonio Natural: Un bosque vivo y único
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition">
+          <h3 class="text-2xl font-semibold mb-4 text-green-800">Flora destacada</h3>
+          <ul class="list-disc pl-6 space-y-2 text-gray-700">
+            <li><strong>Robledales centenarios</strong> (Quercus robur) como especie dominante, con ejemplares de gran porte.</li>
+            <li><strong>Castaños y abedules</strong> en zonas marginales, junto a avellanos y laureles.</li>
+            <li>Más de <strong>20 especies de helechos</strong>, incluyendo helechos prehistóricos como Diplazium caudatum (reliquia termófila que sobrevive gracias a la humedad del río).</li>
+            <li>Alta diversidad de líquenes y musgos, típicos de bosques atlánticos húmedos.</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition">
+          <h3 class="text-2xl font-semibold mb-4 text-green-800">Fauna destacada</h3>
+          <ul class="list-disc pl-6 space-y-2 text-gray-700">
+            <li><strong>Nutria</strong>, garduña, jineta, corzo, zorro y tejón.</li>
+            <li>13 de las 15 especies de anfibios de Galicia: salamandra común y gallaica, sapo y rana.</li>
+            <li>Aves: azor, búho chico, halcón peregrino, milano real, martín pescador y mirlo acuático.</li>
+            <li>Posible presencia de lobo en zonas altas.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-8 text-center">
+        <p class="text-lg italic text-gray-600">
+          Estas Fragas son un refugio de biodiversidad: uno de los últimos reductos de bosque atlántico en buen estado en la península ibérica.
+        </p>
+      </div>
+    </section>
+
+    <!-- Patrimonio Cultural -->
+    <section class="mb-16 bg-gradient-to-b from-green-50 to-white py-12 rounded-xl">
+      <h2 class="text-3xl font-bold mb-8 text-green-700 text-center">
+        Patrimonio Cultural: El Monasterio de Caaveiro
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h3 class="text-2xl font-semibold mb-4 text-green-800">Historia y leyenda</h3>
+          <p class="text-gray-700 mb-4">
+            Fundado en el siglo X (934) como refugio para ermitaños y anacoretas, el Monasterio de San Juan de Caaveiro es un cenobio románico situado en un peñasco espectacular sobre el río Eume.
+          </p>
+          <p class="text-gray-700 mb-4">
+            Recibió donaciones importantes de San Rosendo y nobles, convirtiéndose en eje económico y religioso de la comarca. Abandonado en siglos posteriores, fue declarado monumento histórico-artístico en 1975 y restaurado por la Diputación de A Coruña desde 2003.
+          </p>
+          <p class="italic text-gray-600">
+            Leyenda: Su ubicación aislada y mágica inspiró historias de ermitaños y espíritus del bosque.
+          </p>
+        </div>
+        <img 
+          src="/imagenes/monasterio-caaveiro.jpg" 
+          alt="Monasterio de Caaveiro rodeado de bosque" 
+          class="w-full rounded-xl shadow-lg"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <!-- Curiosidades atractivas -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-8 text-green-700 text-center">
+        Curiosidades que te enamorarán
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow text-center">
+          <h3 class="text-xl font-semibold mb-3">¿Sabías que...?</h3>
+          <p class="text-gray-700">
+            Las Fragas son uno de los pocos bosques atlánticos termófilos supervivientes en Europa, con helechos prehistóricos que han resistido millones de años gracias a la humedad constante del río.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow text-center">
+          <h3 class="text-xl font-semibold mb-3">Biodiversidad extrema</h3>
+          <p class="text-gray-700">
+            Alberga 13 de las 15 especies de anfibios gallegos y aves como el martín pescador y el halcón peregrino.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow text-center">
+          <h3 class="text-xl font-semibold mb-3">Un pulmón verde</h3>
+          <p class="text-gray-700">
+            Con menos de 500 habitantes en 9.126 hectáreas, es uno de los espacios más vírgenes y silenciosos de Galicia.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Llamada a acción -->
+    <section class="text-center py-12">
+      <a href="/itinerario" class="inline-block bg-green-600 hover:bg-green-700 text-white px-10 py-5 rounded-lg text-xl font-medium transition">
+        ¡Descubre la ruta y el mapa interactivo!
+      </a>
+    </section>
+
+  </main>
+
+</Layout> 
