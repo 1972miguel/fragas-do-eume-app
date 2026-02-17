@@ -8,6 +8,122 @@
   border-radius: 8px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
+/* Mejora general de tablas (escritorio y móvil) */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem; /* Espacio vertical entre filas */
+  font-size: 1rem;
+}
+
+th,
+td {
+  padding: 1rem 1.25rem; /* Más espacio interno */
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+  background-color: #166534; /* Verde oscuro */
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.95rem;
+}
+
+td {
+  background-color: white;
+  color: #1f2937;
+}
+
+/* Hover más suave y visible */
+tr:hover td {
+  background-color: #f0fdf4; /* Verde muy claro */
+  transition: background-color 0.2s ease;
+}
+
+/* En escritorio: columnas más anchas y aireadas */
+@media (min-width: 768px) {
+  table {
+    font-size: 1.05rem;
+  }
+
+  th,
+  td {
+    padding: 1.25rem 1.5rem; /* Más padding en desktop */
+  }
+
+  /* Anchos relativos para que no se aprieten */
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: 35%;
+  } /* Punto / Parada */
+  th:nth-child(2),
+  td:nth-child(2) {
+    width: 15%;
+  } /* Km */
+  th:nth-child(3),
+  td:nth-child(3) {
+    width: 15%;
+  } /* Tiempo */
+  th:nth-child(4),
+  td:nth-child(4) {
+    width: 35%;
+  } /* Notas */
+}
+
+/* En móvil: stacked (ya lo tenías, pero lo pulimos) */
+@media (max-width: 767px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    margin-bottom: 1.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  td {
+    border: none;
+    border-bottom: 1px solid #f3f4f6;
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+  }
+
+  td:before {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 45%;
+    padding-right: 1rem;
+    white-space: normal;
+    content: attr(data-label);
+    text-align: left;
+    font-weight: 600;
+    color: #166534;
+  }
+
+  td:last-child {
+    border-bottom: 0;
+  }
+}
 /* Mejoras generales para móvil */
 @media (max-width: 640px) {
   body {
