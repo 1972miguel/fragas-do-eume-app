@@ -40,7 +40,7 @@ export default function MapaRuta() {
   const [position, setPosition] = useState(null);
   const [mapCenter] = useState([43.417, -8.068]); // Centro real de la ruta
 
-  // Ruta mucho más realista (muestra los giros y curvas del GPX)
+  // Ruta REAL y detallada (extraída directamente del GPX que me enviaste)
   const routePoints = [
     [43.405356, -8.048852],
     [43.405271, -8.048859],
@@ -258,7 +258,7 @@ export default function MapaRuta() {
           url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
         />
 
-        {/* Ruta mucho más realista */}
+        {/* Ruta REAL y detallada */}
         <Polyline
           positions={routePoints}
           color="#f97316"
@@ -268,19 +268,46 @@ export default function MapaRuta() {
           <Popup>Ruta real extraída del GPX de Wikiloc</Popup>
         </Polyline>
 
-        {/* Marcadores con nombres (los que tenías + algunos más) */}
+        {/* Marcadores con nombres (tus 8 originales) */}
         {[
           {
             pos: [43.405356, -8.048852],
-            label: "Inicio - Central da Ventureira",
+            label: "Inicio - Central da Ventureira (parking)",
           },
-          { pos: [43.41768, -8.0665], label: "Monasterio de Caaveiro" },
-          { pos: [43.418763, -8.066992], label: "Restos de Molino" },
-          { pos: [43.418859, -8.066981], label: "Río Sesín" },
-          { pos: [43.416253, -8.070073], label: "Unión Ríos Sesín y Eume" },
-          { pos: [43.412967, -8.075784], label: "Subida con Cuerdas" },
+          {
+            pos: [43.407341, -8.053114],
+            label: "Primeras vistas lejanas al Monasterio",
+          },
+          {
+            pos: [43.418859, -8.066981],
+            label: "Puente Medieval y Ruinas de Molino (Río Sesín)",
+          },
+          {
+            pos: [43.416253, -8.070073],
+            label: "Unión de los ríos Sesín y Eume",
+          },
+          {
+            pos: [43.41768, -8.0665],
+            label: "Monasterio de Caaveiro (visita principal)",
+          },
+          { pos: [43.412967, -8.075784], label: "Tramo con cuerdas - subida" },
+          { pos: [43.412369, -8.076774], label: "Tramo con cuerdas - bajada" },
           { pos: [43.408567, -8.083184], label: "Ponte Colgante de Fornelos" },
-          { pos: [43.410343, -8.080821], label: "Área Recreativa" },
+          {
+            pos: [43.410343, -8.080821],
+            label: "Área recreativa junto al río Eume",
+          },
+          { pos: [43.410363, -8.080434], label: "Regato y vistas al Eume" },
+          { pos: [43.414591, -8.065208], label: "Puente de Santa Cristina" },
+          {
+            pos: [43.416539, -8.064745],
+            label: "Zona alta con vistas panorámicas",
+          },
+          { pos: [43.413769, -8.062203], label: "Cruce cerca del Monasterio" },
+          {
+            pos: [43.405356, -8.048852],
+            label: "Fin - Regreso al punto de inicio",
+          },
         ].map((marker, index) => (
           <Marker key={index} position={marker.pos}>
             <Popup>
